@@ -5,12 +5,30 @@ on:
     branches-ignore:
       - v[0-9]+
       - "**beta"
-    paths:
-      - dist/index.js
 
 jobs:
+  lint-and-test:
+    name: Lint and Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check formatting
+        run: npm run format-ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Test
+        run: npm run test
+
   release-dry-run:
     name: Release - Dry Run
+    needs: lint-and-test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
