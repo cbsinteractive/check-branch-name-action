@@ -1,1 +1,1 @@
-require("check")(require("@actions/core"))
+require("./check")(require("@actions/core"))
