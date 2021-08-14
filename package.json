@@ -1,0 +1,25 @@
+{
+  "name": "check-branch-name-action",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Simple tests for a given branch name",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write src/*.js __tests__/*.js",
+    "format-ci": "prettier --check src/*.js __tests__/*.js",
+    "lint": "eslint src/*.js __tests__/*.js",
+    "package": "ncc build src/index.js",
+    "test": "jest --coverage"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.28.6",
+    "eslint": "^7.28.0",
+    "eslint-plugin-github": "^4.1.3",
+    "eslint-plugin-jest": "^24.3.6",
+    "jest": "^27.0.4",
+    "prettier": "^2.3.1"
+  },
+  "dependencies": {
+    "@actions/core": "^1.4.0"
+  }
+}

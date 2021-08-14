@@ -1,0 +1,22 @@
+name: Check Branch Name
+description: Tests the given branch name
+inputs:
+  failIf:
+    description: The branch name to test for
+    required: false
+    default: ""
+  successIf:
+    description: The branch name to test for
+    required: false
+    default: ""
+  branch:
+    description: The branch name to test
+    required: true
+  failureMessage:
+    description: >-
+      A message to display if `failIf` is supplied and the test is positive
+      or if `successIf` is supplied and the test is negative
+    required: true
+runs:
+  using: "node12"
+  main: "dist/index.js"
